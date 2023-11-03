@@ -1,5 +1,13 @@
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
-import {AcmeLogo} from "./AcmeLogo.jsx";
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+} from "@nextui-org/react";
+import { AcmeLogo } from "./AcmeLogo.jsx";
+import ThemeSwitcher from "../theme_switcher/theme_toggle.tsx";
 
 export default function NavbarComponent() {
   return (
@@ -33,6 +41,11 @@ export default function NavbarComponent() {
           <Button as={Link} color="primary" href="#" variant="flat">
             Sign Up
           </Button>
+        </NavbarItem>
+      </NavbarContent>
+      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+        <NavbarItem>
+          <ThemeSwitcher />
         </NavbarItem>
       </NavbarContent>
     </Navbar>

@@ -1,10 +1,11 @@
-import NavbarComponent from "./components/navbar/navbar"
+import NavbarComponent from "./components/navbar/navbar";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 export default function App() {
   return (
-    <h1>
+    <NextThemesProvider attribute="class" defaultTheme="dark">
       {/* Navbar */}
-      <NavbarComponent/>
-    </h1>
-  )
+      <NavbarComponent />
+    </NextThemesProvider>
+  );
 }
