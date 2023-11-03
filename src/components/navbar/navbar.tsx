@@ -33,6 +33,11 @@ export default function NavbarComponent() {
           </Link>
         </NavbarItem>
       </NavbarContent>
+      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+        <NavbarItem>
+          <ThemeSwitcher />
+        </NavbarItem>
+      </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Sign In</Link>
@@ -41,11 +46,6 @@ export default function NavbarComponent() {
           <Button as={Link} color="primary" href="#" variant="flat">
             Sign Up
           </Button>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent className="hidden sm:flex gap-4" justify="end">
-        <NavbarItem>
-          <ThemeSwitcher />
         </NavbarItem>
       </NavbarContent>
     </Navbar>
