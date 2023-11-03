@@ -41,7 +41,9 @@ const ThemeSwitcher = ({ props }: any) => {
           >
             {isSelected ? <SunIcon /> : <MoonIcon />}
           </div>
-          Dark Mode
+          <p className="hidden sm:block">
+            Dark Mode
+          </p>
         </Component>
       </div>
     </div>
