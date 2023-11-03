@@ -6,7 +6,7 @@ export default function NavbarComponent() {
     <Navbar position="static">
       <NavbarBrand>
         <AcmeLogo />
-        <p className="font-bold text-inherit">Code Odyessey Editor</p>
+        <p className="font-bold text-inherit">Code Odyssey Editor</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
