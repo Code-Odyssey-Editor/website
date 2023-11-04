@@ -23,6 +23,7 @@ function Root() {
   );
 }
 
+
 export default function App() {
   return (
     <NextThemesProvider attribute="class" defaultTheme="dark">
