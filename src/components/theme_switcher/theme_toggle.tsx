@@ -18,6 +18,7 @@ const ThemeSwitcher = ({ props }: any) => {
   // Depends on Selection
   if (!isSelected) {
     setTheme("light");
+    console.log(theme);
   } else {
     setTheme("dark");
   }
@@ -41,9 +42,7 @@ const ThemeSwitcher = ({ props }: any) => {
           >
             {isSelected ? <SunIcon /> : <MoonIcon />}
           </div>
-          <p className="hidden sm:block">
-            Dark Mode
-          </p>
+          <p className="hidden sm:block">Dark Mode</p>
         </Component>
       </div>
     </div>
