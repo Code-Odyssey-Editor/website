@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Image } from "@nextui-org/react";
 import { TypeAnimation } from "react-type-animation";
-import image from '../../../public/logo/logo.png'
+import image from '/logo/logo.png?url'
 
 const HeroComponent = () => {
   // Type Animation

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { motion } from "framer-motion";
 
 const footerNavs = [
@@ -38,7 +39,7 @@ const footerNavs = [
         name: "Privacy",
       },
       {
-        href: "/website/about",
+        href: "about",
         name: "About US",
       },
     ],
@@ -152,12 +153,12 @@ const FooterComponent = () => {
               </h4>
               {item.items.map((el, idx) => (
                 <li key={idx}>
-                  <a
-                    href={el.href}
+                  <Link
+                    to={el.href}
                     className="hover:text-gray-800 duration-150"
                   >
                     {el.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
