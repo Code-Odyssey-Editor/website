@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.1.13",
+    "@react-spring/web": "^9.7.3",
     "framer-motion": "^10.16.4",
+    "install": "^0.13.0",
     "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
