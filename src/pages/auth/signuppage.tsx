@@ -45,7 +45,10 @@ const Signup: React.FC = () => {
               </div>
 
               <div className="pl-28">
-                <Button className="max-w-[290px] mt-6 max-h-[30px]" color="primary">
+                <Button
+                  className="max-w-[290px] mt-6 max-h-[30px]"
+                  color="primary"
+                >
                   Sign In
                 </Button>
               </div>
@@ -58,4 +61,3 @@ const Signup: React.FC = () => {
 };
 
 export default Signup;
-
