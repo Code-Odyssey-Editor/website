@@ -1,21 +1,32 @@
-import NavbarComponent from "./components/navbar/navbar";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import ParticlesContainer from "./components/particlescontainer/particlescontainer";
+import {
+  Route,
+  createBrowserRouter,
+  Routes,
+  RouterProvider,
+} from "react-router-dom";
+import homepage from "./pages/homepage";
+import aboutpage from "./pages/aboutpage";
+
+// Router
+const router = createBrowserRouter([{ path: "*", Component: Root }]);
+
+// 1️⃣ Changed from App to Root
+function Root() {
+  // 2️⃣ `BrowserRouter` component removed, but the <Routes>/<Route>
+  // component below are unchanged
+  return (
+    <Routes>
+      <Route path="/website" Component={homepage} />
+      <Route path="/website/about" Component={aboutpage} />
+    </Routes>
+  );
+}
 
 export default function App() {
   return (
     <NextThemesProvider attribute="class" defaultTheme="dark">
-      <main className="w-full h-full">
-        {/* Background blur effect */}
-        <div className="bg-[#fbf8e2]/30 dark:bg-[#6a54c0]/20 absolute -z-10 top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem]"></div>
-        <div className="bg-[#e2fafb]/50 dark:bg-[#c04f4f]/10 absolute -z-10 top-[-1rem] left-[-35rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]"></div>
-
-        {/* Particles Container */}
-        <ParticlesContainer />
-
-        {/* Navbar */}
-        <NavbarComponent />
-      </main>
+      <RouterProvider router={router} />
     </NextThemesProvider>
   );
 }
