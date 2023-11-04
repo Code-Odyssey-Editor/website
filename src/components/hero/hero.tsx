@@ -20,21 +20,15 @@ const HeroComponent = () => {
 
   return (
     <div>
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }}
-        transition={{ duration: 0.5, delay: 0.8, type: "spring" }}
-        className="relative w-full mx-auto my-4"
-      >
-        <motion.div
-          initial={{ opacity: 0, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ duration: 0.5, delay: 0.5, type: "spring" }}
-          className="grid grid-cols-2 place-content-around gap-4 m-5 p-8"
-        >
-          <div className="flex flex-col justify-center">
+      <motion.div className="relative w-full mx-auto my-4">
+        <motion.div className="grid grid-cols-2 place-content-around gap-4 m-5 p-8">
+          <motion.div
+            initial={{ opacity: 0, x: -200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 1, type: "spring" }}
+            className="flex flex-col justify-center"
+          >
             <p className="text-7xl font-serif font-bold text-center text-current pt-4 leading-snug">
               Code Odyssey
             </p>
@@ -49,8 +43,14 @@ const HeroComponent = () => {
                 cursor={false}
               />
             </p>
-          </div>
-          <div className="flex justify-center mr-10">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 300 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 1, type: "spring" }}
+            className="flex justify-center mr-10"
+          >
             <Image
               isBlurred
               width={400}
@@ -58,7 +58,7 @@ const HeroComponent = () => {
               alt="NextUI Album Cover"
               className="m-5 hidden sm:block"
             />
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
 
