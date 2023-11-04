@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Image } from "@nextui-org/react";
 import { TypeAnimation } from "react-type-animation";
+import image from '../../../public/logo/logo.png'
 
 const HeroComponent = () => {
   // Type Animation
@@ -49,7 +50,7 @@ const HeroComponent = () => {
           <Image
             isBlurred
             width={400}
-            src="/logo/logo.png"
+            src={image}
             alt="NextUI Album Cover"
             className="m-5 hidden sm:block"
           />
