@@ -5,7 +5,6 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   Button,
   NavbarMenuToggle,
   NavbarMenu,
@@ -16,6 +15,7 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import { AcmeLogo } from "./AcmeLogo.jsx";
+import { Link } from "react-router-dom";
 import ThemeSwitcher from "../theme_switcher/theme_toggle.tsx";
 import {
   ChevronDown,
@@ -131,13 +131,13 @@ export default function NavbarComponent() {
           </Dropdown>
         </NavbarItem>
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
+          <Link to="#" aria-current="page">
             Customers
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
+          <Link color="foreground" to="editor">
+            Editor
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -148,10 +148,10 @@ export default function NavbarComponent() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden md:flex">
-          <Link href="#">Sign In</Link>
+          <Link to="sign-in">Sign In</Link>
         </NavbarItem>
         <NavbarItem className="hidden md:flex">
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" to="sign-up" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
@@ -168,8 +168,7 @@ export default function NavbarComponent() {
                   : "foreground"
               }
               className="w-full"
-              href="#"
-              size="lg"
+              to="#"
             >
               {item}
             </Link>
