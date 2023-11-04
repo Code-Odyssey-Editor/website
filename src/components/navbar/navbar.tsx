@@ -32,6 +32,7 @@ export default function NavbarComponent() {
 
   return (
     <Navbar
+    position="static"
     onMenuOpenChange={setIsMenuOpen}
       className="backdrop:blur rounded-full bg-pink-100/20 border border-gray-100/40 dark:border-gray-800/40 dark:bg-gray-800/80 w-3/4 mx-auto mt-4"
     >
