@@ -1,6 +1,6 @@
 import Particles from "react-particles";
 import { loadFull } from "tsparticles";
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 
 const ParticlesContainer = () => {
   // init
@@ -12,7 +12,7 @@ const ParticlesContainer = () => {
 
   return (
     <Particles
-      className="w-full h-full absolute translate-z-0"
+      className="w-full h-full absolute translate-z-0 bg-transparent"
       id="tsparticles"
       init={particlesInit}
       loaded={particlesLoaded}
@@ -20,11 +20,6 @@ const ParticlesContainer = () => {
         fullScreen: {
           enable: false,
           zIndex: -1,
-        },
-        background: {
-          color: {
-            value: "#fcfcfc",
-          },
         },
         fpsLimit: 120,
         interactivity: {
