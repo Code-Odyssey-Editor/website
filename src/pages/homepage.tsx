@@ -2,6 +2,7 @@ import FooterComponent from "../components/footer/footer";
 import HeroComponent from "../components/hero/hero";
 import NavbarComponent from "./../components/navbar/navbar";
 import ParticlesContainer from "./../components/particlescontainer/particlescontainer";
+import { motion } from "framer-motion";
 
 const homepage = () => {
   return (
@@ -11,14 +12,16 @@ const homepage = () => {
       <div className="bg-[#e2fafb]/50 dark:bg-[#c04f4f]/10 absolute -z-10 top-[-1rem] left-[-35rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]"></div>
 
       {/* Particles Container */}
-      <ParticlesContainer />
+      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1.5, delay: 0.5 }}>
+        <ParticlesContainer />
+      </motion.div>
 
       {/* Navbar */}
       <NavbarComponent />
 
       {/* Hero */}
       <HeroComponent />
-      
+
       {/* Footer */}
       <FooterComponent />
     </main>

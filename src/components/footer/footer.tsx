@@ -103,7 +103,7 @@ const FooterComponent = () => {
       }}
       initial="hidden"
       whileInView={"show"}
-      className="relative backdrop:blur-lg rounded-3xl border border-gray-100 dark:border-gray-100/20 dark:bg-gray-700/30 w-11/12 mx-auto mt-4 p-4 mb-4 bg-white/70"
+      className="relative backdrop:blur-lg rounded-3xl border-gray-100 dark:border-gray-100/20 dark:bg-gray-700/30 w-11/12 mx-auto mt-4 p-4 mb-4 bg-blue-100/30 border-2 border-blue-100/50"
     >
       <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         <div className="justify-between items-center gap-12 md:flex">
