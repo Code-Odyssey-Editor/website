@@ -1,4 +1,5 @@
 import FooterComponent from "../components/footer/footer";
+import HeroComponent from "../components/hero/hero";
 import NavbarComponent from "./../components/navbar/navbar";
 import ParticlesContainer from "./../components/particlescontainer/particlescontainer";
 
@@ -14,6 +15,9 @@ const homepage = () => {
 
       {/* Navbar */}
       <NavbarComponent />
+
+      {/* Hero */}
+      <HeroComponent />
       
       {/* Footer */}
       <FooterComponent />
