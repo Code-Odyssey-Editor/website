@@ -16,9 +16,6 @@ const homepage = () => {
         <ParticlesContainer />
       </motion.div>
 
-      {/* Navbar */}
-      <NavbarComponent />
-
       {/* Hero */}
       <HeroComponent />
 
