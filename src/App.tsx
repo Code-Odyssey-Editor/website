@@ -10,6 +10,7 @@ import aboutpage from "./pages/aboutpage";
 import editorpage from "./pages/editor/editorpage";
 import SignIn from "./pages/auth/signinpage";
 import Signup from "./pages/auth/signuppage";
+import supportpage from "./pages/supportpage";
 import { Spinner } from "@nextui-org/react";
 
 // Router
@@ -24,6 +25,7 @@ function Root() {
       <Route path="/" Component={homepage} />
       <Route path="/about" Component={aboutpage} />
       <Route path="/editor" Component={editorpage} />
+      <Route path="/support" Component={supportpage} />
       <Route path="/sign-in" Component={SignIn} />
       <Route path="/sign-up" Component={Signup} />
     </Routes>
