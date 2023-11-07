@@ -10,7 +10,7 @@ const footerNavs = [
         name: "Contact",
       },
       {
-        href: "javascript:void()",
+        href: "/website/support",
         name: "Support",
       },
       {
