@@ -5,8 +5,6 @@ import {
   Routes,
   RouterProvider,
 } from "react-router-dom";
-import { motion } from "framer-motion";
-import NavbarComponent from "./components/navbar/navbar";
 import homepage from "./pages/homepage";
 import aboutpage from "./pages/aboutpage";
 import editorpage from "./pages/editor/editorpage";
