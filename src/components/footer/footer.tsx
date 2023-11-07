@@ -6,7 +6,7 @@ const footerNavs = [
     label: "Resources",
     items: [
       {
-        href: "javascript:void()",
+        href: "/website/contact",
         name: "Contact",
       },
       {
