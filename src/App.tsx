@@ -12,36 +12,46 @@ import aboutpage from "./pages/aboutpage";
 import editorpage from "./pages/editor/editorpage";
 import SignIn from "./pages/auth/signinpage";
 import Signup from "./pages/auth/signuppage";
+import supportpage from "./pages/supportpage";
+import { Spinner } from "@nextui-org/react";
 
 // Router
-const router = createBrowserRouter([{ path: "*", Component: Root }]);
+const router = createBrowserRouter([{ path: "/website/*", Component: Root , ErrorBoundary: Root}]);
 
 // 1️⃣ Changed from App to Root
 function Root() {
   // 2️⃣ `BrowserRouter` component removed, but the <Routes>/<Route>
   // component below are unchanged
   return (
-    <div>
-      {/* Navbar */}
-      <motion.div initial={{ opacity:0, y:100 }} animate={{ opacity:1, y:0 }} transition={{ duration: 0.5, delay: 0.1, type: "spring" }}>
-        <NavbarComponent />
-      </motion.div>
-      <Routes>
-        <Route path="/website" Component={homepage} />
-        <Route path="/website/about" Component={aboutpage} />
-        <Route path="/website/editor" Component={editorpage} />
-        <Route path="/website/sign-in" Component={SignIn} />
-        <Route path="/website/sign-up" Component={Signup} />
-      </Routes>
-    </div>
-    
+    <Routes>
+      <Route path="/" Component={homepage} />
+      <Route path="/about" Component={aboutpage} />
+      <Route path="/editor" Component={editorpage} />
+      <Route path="/support" Component={supportpage} />
+      <Route path="/sign-in" Component={SignIn} />
+      <Route path="/sign-up" Component={Signup} />
+    </Routes>
   );
+}
+
+// Spinner Element
+function SpinnerElement() {
+  return ( <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+    }}
+  >
+    <Spinner label="Loading..." color="success" labelColor="success" />
+  </div>)
 }
 
 export default function App() {
   return (
     <NextThemesProvider attribute="class" defaultTheme="dark">
-      <RouterProvider router={router} />
+      <RouterProvider router={router} fallbackElement={<SpinnerElement />} />
     </NextThemesProvider>
   );
 }
