@@ -32,18 +32,16 @@ function Root() {
 
 // Spinner Element
 function SpinnerElement() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <Spinner label="Success" color="success" labelColor="success" />
-    </div>
-  );
+  return ( <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+    }}
+  >
+    <Spinner label="Loading..." color="success" labelColor="success" />
+  </div>)
 }
 
 export default function App() {
