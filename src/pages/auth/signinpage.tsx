@@ -2,51 +2,62 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { Input } from "@nextui-org/input";
+import { Button } from "@nextui-org/react";
 
+import "./signinpage.css"
 const SignIn: React.FC = () => {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100/80">
-      <div className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <div className="bg-white rounded-3xl shadow-2xl flex w-2/3 max-w-4xl">
-          {/* Sign In Section */}
-          <div className="w-full lg:w-3/5 p-5">
-            <div className="text-left font-bold font-serif">
-              <span className="text-blue-500">Code Odyssey</span> Editor
-            </div>
-            <div className="py-10">
-              <h2 className="text-3xl font-bold text-blue-500 mb-2">
-                Sign In
-              </h2>
-              <div className="border-2 w-10 border-blue-500 inline-block mb-2"></div>
-              <div className="flex justify-center my-2">
+   
+    <body className="body ">
+
+      <div className="card">
+
+        < input type="checkbox" id="chk" aria-hidden="true" name="" />
+        <div className="content">
+
+          <div className="front">
+            <div className="inner">
+
+              <span >Code Odyssey </span>
+              <span className="text-black"> Editor</span>
+
+              <h1 className="title">SignIn</h1>
+              <div className="flex justify-center my-2 mt-20">
                 <Link
                   to="#"
                   className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
                 >
-                  <FaGoogle className="text-sm" />
+                  <FaGoogle />
                 </Link>
                 <Link
                   to="#"
                   className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
                 >
-                  <FaGithub className="text-sm" />
+                  <FaGithub />
                 </Link>
                 <Link
                   to="#"
                   className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
                 >
-                  <FaFacebook className="text-sm" />
+                  <FaFacebook />
                 </Link>
               </div>
-              <p className="text-gray-400 my-3">or use your email account</p>
-              <div className="flex flex-col items-center">
+              <p className="para">Just some details to get you in.!</p>
+
+              {/* <Image className=""
+                width={150}
+                alt="NextUI Fruit Image with Zoom"
+                src="https://nextui-docs-v2.vercel.app/images/fruit-1.jpeg"
+              /> */}
+              <form className="flex flex-col items-center">
                 <Input
                   isRequired
                   type="email"
                   label="Email"
                   // placeholder="Enter your Password"
-                  className="max-w-xs mt-5"
                   variant={"flat"}
+                  className="max-w-xs mt-5 overflow-hidden "
+
                 />
                 <Input
                   isRequired
@@ -54,44 +65,72 @@ const SignIn: React.FC = () => {
                   label="Password"
                   // placeholder="Enter your Password"
                   className="max-w-xs mt-3 mb-4"
-                  variant={"flat"}
                 />
-                <div className="flex w-64 mb-5">
-                  <label className="text-sm text-gray-400 cursor-pointer m-2 justify-start text-start">
-                    <input type="checkbox" className="mr-1" /> Remember me
+                <div className="checkboxandforgetpassword">
+                  <label >
+                    <input type="checkbox" /> Remember me
                   </label>
-                  <Link
-                    to="/auth/forgotpassword"
-                    className="text-sm ml-auto text-gray-900/60 font-bold m-2 justify-end text-end"
-                  >
-                    Forgot Password?
-                  </Link>
+
+                  <label htmlFor="chk" aria-hidden="true" className="f_password" >
+                    Forgot password?
+                  </label>
                 </div>
-                <Link to="sign-in">
-                  <button className="border-2 border-blue-500 rounded-full px-12 py-2 inline-block font-semibold hover:bg-blue-500 hover:text-white transition ease-in-out duration-300">
-                    Sign In
-                  </button>
-                </Link>
-              </div>
+                <Button  className="font-extralight text-base mt-4 hover:bg-emerald-500 hover:text-white " >
+                  Sign In
+                </Button>
+              </form>
+
             </div>
+
           </div>
 
-          {/* Sign Up Section */}
-          <div className="hidden lg:block w-2/5 bg-blue-500/80 text-white rounded-tr-3xl rounded-br-3xl py-48 px-16">
-            <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
-            <div className="border-2 w-10 border-white inline-block mb-2"></div>
-            <p className="mb-2">
-              Fill up personal information and start journey with us.
-            </p>
-            <Link to="sign-up">
-              <button className="border-2 border-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-blue-500 transition ease-in-out duration-300">
-                Sign Up
-              </button>
-            </Link>
+          <div className="back">
+            <div className="inner">
+              <span >Code Odyssey Editor</span>
+              <span className="text-black"> Editor</span>
+              <h1 className="title2">Reset Password</h1>
+              <form className="flex flex-col items-center">
+                <Input
+                  isRequired
+                  type="text"
+                  label="Username"
+                  // placeholder="Enter your Password"
+                  variant={"flat"}
+                  className="max-w-xs mt-24 "
+                />
+                <Input
+                  isRequired
+                  type="email"
+                  label="Email"
+                  // placeholder="Enter your Password"
+                  variant={"flat"}
+                  className="max-w-xs mt-3 mb-4"
+                />
+                <Button  className="font-extralight text-base mt-3 hover:bg-emerald-500 hover:text-white">
+                  Reset Password
+                </Button>
+                <label htmlFor="chk" aria-hidden="true" className="backtosigninpage" >
+                  Back to signIn page 
+                </label>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </main>
+      <div className="sidebox">
+
+        <div className="title3"><h2 >Hello, Friend!</h2></div>
+
+        <p className="titledetail">
+          Fill up information and start journey with us.
+        </p>
+        <Link to="sign-up" className="pl-36">
+          <Button  className="font-extralight mt-56 text-base hover:bg-white hover:text-green-500">
+            Sign Up
+          </Button>
+        </Link>
+      </div>
+    </body>
   );
 };
 
