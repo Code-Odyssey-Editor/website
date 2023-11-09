@@ -15,13 +15,13 @@ import CommonNavbar from "../../components/navbar/common_navbar";
 
 export const editor = () => {
   const [code, setCode] = useState(""); // Initialize code state with an empty string
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const [width, setWidth] = useState(0);
 
   useLayoutEffect(() => {
-    setWidth(ref.current.offsetWidth);
-  }, []);
+    setWidth(ref.current?.offsetWidth || 0);
+  }, [width]);
 
   useEffect(() => {
     // Define the theme data to match the VS Code dark theme
@@ -74,7 +74,7 @@ export const editor = () => {
           {/* Icon */}
           <div className="my-auto pl-2 w-16">
             <Image
-              src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+              src={"/logo/logo.png"}
               alt="icon"
               width={40}
               height={40}
