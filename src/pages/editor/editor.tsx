@@ -8,13 +8,14 @@ import {
 } from "@nextui-org/react";
 import { CiSearch } from "react-icons/ci";
 import { RxDashboard } from "react-icons/rx";
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
-import * as monaco from "monaco-editor";
+import { useState, useRef, useLayoutEffect } from "react";
 import MonacoEditor from "react-monaco-editor";
 import CommonNavbar from "../../components/navbar/common_navbar";
+import { useTheme } from "next-themes";
 
 export const editor = () => {
   const [code, setCode] = useState(""); // Initialize code state with an empty string
+  const { theme } = useTheme();
   const ref = useRef<HTMLDivElement>(null);
 
   const [width, setWidth] = useState(0);
@@ -23,45 +24,9 @@ export const editor = () => {
     setWidth(ref.current?.offsetWidth || 0);
   }, [width]);
 
-  useEffect(() => {
-    // Define the theme data to match the VS Code dark theme
-    monaco.editor.defineTheme("vs-dark-like", {
-      base: "vs-dark",
-      inherit: true,
-      rules: [
-        { token: "comment", foreground: "008000" }, // Comment color in VS Code dark theme
-        { token: "keyword", foreground: "569CD6" }, // Keyword color in VS Code dark theme
-        { token: "string", foreground: "CE9178" }, // String color in VS Code dark theme
-        // Define more token rules as needed
-      ],
-      colors: {
-        "editor.foreground": "D4D4D4", // Foreground color in VS Code dark theme
-        // Define more colors as needed
-      },
-    });
-
-    // Apply the VS Code-like dark theme to Monaco Editor
-    monaco.editor.setTheme("vs-dark-like");
-  }, []);
-
   const handleCodeChange = (newCode: string) => {
     setCode(newCode);
   };
-
-  monaco.editor.defineTheme("vs-dark-like", {
-    base: "vs-dark",
-    inherit: true,
-    rules: [
-      { token: "comment", foreground: "008000" }, // Comment color in VS Code dark theme
-      { token: "keyword", foreground: "569CD6" }, // Keyword color in VS Code dark theme
-      { token: "string", foreground: "CE9178" }, // String color in VS Code dark theme
-      // Define more token rules as needed
-    ],
-    colors: {
-      "editor.foreground": "D4D4D4", // Foreground color in VS Code dark theme
-      // Define more colors as needed
-    },
-  });
 
   return (
     <div>
@@ -73,12 +38,7 @@ export const editor = () => {
         <section className="w-full h-max bg-slate-100 dark:bg-slate-900 rounded-3xl p-2 flex flex-row gap-4 relative">
           {/* Icon */}
           <div className="my-auto pl-2 w-16">
-            <Image
-              src={"/logo/logo.png"}
-              alt="icon"
-              width={40}
-              height={40}
-            />
+            <Image src={"/logo/logo.png"} alt="icon" width={40} height={40} />
           </div>
 
           {/* Top Menu Section */}
@@ -163,13 +123,13 @@ export const editor = () => {
 
         {/* Bottom Section */}
         <section
-          className="w-full h-[800px] bg-slate-100 dark:bg-[#1E1E1E] rounded-3xl p-2 mx-auto my-2 flex flex-col"
+          className="w-full h-[800px] bg-white dark:bg-[#1E1E1E] rounded-3xl p-2 mx-auto my-2 flex flex-col"
           ref={ref}
         >
           {/* Editor Box */}
           <MonacoEditor
             language="javascript" // Specify the language for syntax highlighting
-            theme={"vs-dark-like"} // Specify the theme for the editor
+            theme={theme === "dark" ? "vs-dark" : "vs"} // Specify the theme for the editor
             value={code}
             options={{
               selectOnLineNumbers: true,
