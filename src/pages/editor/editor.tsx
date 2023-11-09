@@ -14,7 +14,7 @@ export const editor = () => {
     // Editor Section
     <section className="w-11/12 h-full mx-auto my-4 dark:bg-gray-800 bg-slate-300 p-2 rounded-3xl">
       {/* Top Section */}
-      <section className="w-full h-max bg-slate-100 dark:bg-slate-800 rounded-3xl p-2 flex flex-row gap-4 relative">
+      <section className="w-full h-max bg-slate-100 dark:bg-slate-900 rounded-3xl p-2 flex flex-row gap-4 relative">
         {/* Icon */}
         <div className="my-auto ml-2">
           {" "}
