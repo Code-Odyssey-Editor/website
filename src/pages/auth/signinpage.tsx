@@ -18,8 +18,8 @@ const SignIn: React.FC = () => {
           <div className="front">
             <div className="inner">
 
-              <span >Code Odyssey </span>
-              <span className="text-black"> Editor</span>
+              <span className="span">Code Odyssey </span>
+              <span className="text-black span"> Editor</span>
 
               <h1 className="title">SignIn</h1>
               <div className="flex justify-center my-2 mt-20">
@@ -86,8 +86,8 @@ const SignIn: React.FC = () => {
 
           <div className="back">
             <div className="inner">
-              <span >Code Odyssey Editor</span>
-              <span className="text-black"> Editor</span>
+              <span className="span">Code Odyssey Editor</span>
+              <span className="text-black span"> Editor</span>
               <h1 className="title2">Reset Password</h1>
               <form className="flex flex-col items-center">
                 <Input
