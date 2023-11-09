@@ -13,8 +13,6 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { VscLibrary } from "react-icons/vsc";
 import { VscInfo } from "react-icons/vsc";
 import { IoMdLocate } from "react-icons/io";
-import { VscBell } from "react-icons/vsc";
-import { VscNote } from "react-icons/vsc";
 import { PiArrowsInSimpleDuotone } from "react-icons/pi";
 import { PiArrowsOutSimpleDuotone } from "react-icons/pi";
 import { AiOutlineMinus } from "react-icons/ai";
@@ -28,9 +26,19 @@ import MonacoEditor from "react-monaco-editor";
 import { useState } from "react";
 import { useEffect } from "react";
 import * as monaco from "monaco-editor";
+import {useRef} from 'react';
 
 const editorpage = () => {
   const [code, setCode] = useState(""); // Initialize code state with an empty string
+  const ref = useRef(null);
+
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    setWidth(ref.current.offsetWidth);
+    setHeight(ref.current.offsetHeight);
+  }, []);
 
   useEffect(() => {
     // Define the theme data to match the VS Code dark theme
@@ -53,7 +61,6 @@ const editorpage = () => {
     monaco.editor.setTheme("vs-dark-like");
   }, []);
 
-
   const handleCodeChange = (newCode: string) => {
     setCode(newCode);
   };
@@ -62,7 +69,7 @@ const editorpage = () => {
       {/* Main Editor */}
       <div className="w-11/12 bg-gradient-to-r from-gray-700/80 to-slate-800  rounded-3xl p-1">
         {/* Navbar */}
-        <nav className="flex flex-row p-2 bg-blue-500/20 rounded-full overflow-hidden">
+        <nav className="flex flex-row p-2 m-1 bg-blue-500/20 rounded-3xl overflow-hidden">
           <div className="flex flex-row ">
             <FaGoogle className="overflow-hidden w-4 h-4 text-white m-4 hover:scale-110 cursor-pointer" />
             <ul className="overflow-hidden ml-3 flex items-center gap-3 text-sm py-[5px] text-white/80 font-sans font-medium bg-black/20 rounded-full px-4">
@@ -76,7 +83,7 @@ const editorpage = () => {
               <li className="cursor-pointer hover:text-white">Help</li>
             </ul>
           </div>
-          <div className="overflow-hidden flex w-full px-4 rounded-2xl flex justify-between items-center  text-white shadow-inner ">
+          <div className="overflow-hidden w-full px-4 rounded-2xl flex justify-between items-center text-white shadow-inner ">
             <div className="w-full">
               <Input
                 // label="Search"
@@ -118,11 +125,41 @@ const editorpage = () => {
             </div>
           </div>
         </nav>
-        <div className="">
-          <div className="bg-gradient-to-r from-gray-700/80 to-slate-800 overflow-hidden mt-2 left-1/2 ml-0.5 start-32 absolute h-5/6 w-3/12  rounded-s-lg p-2">
+
+        {/* Project Box */}
+        <div className="flex flex-row gap-2 relative">
+          {/* Menu Bar */}
+          <div className="flex flex-col gap-2 w-16 bg-gray-700/90 rounded-full my-1 ml-1">
+            {/* Folder */}
+            <FaFolderOpen className="text-white mx-auto mt-4 cursor-pointer" />
+            {/* Extensions */}
+            <VscExtensions className="text-white mx-auto mt-2 cursor-pointer" />
+            {/* Commit */}
+            <BiGitCommit className="text-white mx-auto mt-2 cursor-pointer" />
+            {/* Bookmarks */}
+            <BsFillBookmarksFill className="text-white mx-auto mt-2 cursor-pointer" />
+            {/* More */}
+            <FiMoreHorizontal className="text-white mx-auto mt-1 mb-4 cursor-pointer" />
+            <div className="flex flex-col gap-2 w-12 bg-gray-900/90 rounded-full m-1 mt-80">
+              {/* Terminal */}
+              <BsTerminal className="text-white mx-auto mt-4 cursor-pointer" />
+              {/* Play */}
+              <VscPlay className="text-white mx-auto mt-2 cursor-pointer" />
+              {/* GitMerge */}
+              <VscGitMerge className="text-white mx-auto mt-2 cursor-pointer" />
+              {/* Info */}
+              <VscInfo className="text-white mx-auto  mt-2 cursor-pointer" />
+              {/* Account */}
+              <VscAccount className="text-white mx-auto mt-2 cursor-pointer" />
+              {/* Setting */}
+              <SlSettings className="text-white mx-auto mb-4 mt-2 cursor-pointer" />
+            </div>
+          </div>
+
+          {/* Folder Box */}
+          <div className="lg:flex hidden flex-col ml-1 mb-2 bg-gradient-to-r from-gray-700/80 to-slate-800 mt-2 h-11/12 w-1/4 rounded-2xl p-2">
             <div className="pl-1 flex w-full justify-between text-white overflow-hidden">
               <h4 className="	">Project</h4>
-
               <div className="gap-2 p-1 flex text-white/90 text-base ">
                 <IoMdLocate className="hover:text-white" />
                 <PiArrowsInSimpleDuotone className="hover:text-white" />
@@ -155,10 +192,10 @@ const editorpage = () => {
               </div>
             </div>
           </div>
-          <div className="mt-1 ml-28 left-96 absolute h-5/6 w-7/12 bg-gradient-to-r from-gray-700/80 to-slate-900 rounded-r-lg p-2 overflhidden">
+
+          {/* Editor Box */}
+          <div className="h-screen/2 w-11/12 my-2 mr-1 bg-[#1E1E1E] rounded-2xl p-2" ref={ref}>
             <MonacoEditor
-              className="w-full h-full mt-0.5"
-              height={690}
               language="javascript" // Specify the language for syntax highlighting
               theme="vs-dark"
               value={code}
@@ -166,42 +203,9 @@ const editorpage = () => {
                 selectOnLineNumbers: true,
               }}
               onChange={handleCodeChange}
+              height={height}
+              width={width}
             />
-          </div>
-        </div>
-        {/* Menu Bar */}
-        <div className="flex flex-col gap-2 w-12 bg-gray-700/90 rounded-full m-1">
-          {/* Folder */}
-          <FaFolderOpen className="text-white mx-auto mt-4 cursor-pointer" />
-          {/* Extensions */}
-          <VscExtensions className="text-white mx-auto mt-2 cursor-pointer" />
-          {/* Commit */}
-          <BiGitCommit className="text-white mx-auto mt-2 cursor-pointer" />
-          {/* Bookmarks */}
-          <BsFillBookmarksFill className="text-white mx-auto mt-2 cursor-pointer" />
-          {/* More */}
-          <FiMoreHorizontal className="text-white mx-auto mt-2 mb-4 cursor-pointer" />
-        </div>
-        <div className="w-full flex justify-between items-end">
-          <div className="flex flex-col gap-2 w-12 bg-gray-700/90 rounded-full m-1 mt-80">
-            {/* Terminal */}
-            <BsTerminal className="text-white mx-auto mt-4 cursor-pointer" />
-            {/* Play */}
-            <VscPlay className="text-white mx-auto mt-2 cursor-pointer" />
-            {/* GitMerge */}
-            <VscGitMerge className="text-white mx-auto mt-2 cursor-pointer" />
-            {/* Info */}
-            <VscInfo className="text-white mx-auto  mt-2 cursor-pointer" />
-            {/* Account */}
-            <VscAccount className="text-white mx-auto mt-2 cursor-pointer" />
-            {/* Setting */}
-            <SlSettings className="text-white mx-auto  mb-4 mt-2 cursor-pointer" />
-          </div>
-          <div className="flex flex-col gap-2 w-12  rounded-full m-1 h-max">
-            {/* Be */}
-            <VscBell className="text-white mx-auto mt-4 cursor-pointer" />
-            {/* Note */}
-            <VscNote className="text-white mb-4 mx-auto mt-2 cursor-pointer" />
           </div>
         </div>
       </div>
