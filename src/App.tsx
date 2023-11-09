@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import homepage from "./pages/homepage";
 import aboutpage from "./pages/aboutpage";
-import editorpage from "./pages/editor/editorpage";
 import SignIn from "./pages/auth/signinpage";
 import Signup from "./pages/auth/signuppage";
 import supportpage from "./pages/supportpage";
@@ -29,7 +28,6 @@ function Root() {
     <Routes>
       <Route path="/" Component={homepage} />
       <Route path="/about" Component={aboutpage} />
-      <Route path="/editorpage" Component={editorpage} />
       <Route path="/editor" Component={editor} />
       <Route path="/support" Component={supportpage} />
       <Route path="/contact" Component={contactpage} />
