@@ -4,24 +4,17 @@ import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/react";
 
-import "./signinpage.css"
 const SignIn: React.FC = () => {
   return (
-   
-    <body className="body ">
+    <body className="body flex items-center justify-center h-[100vh] bg-[#f2f2f2] transition-filter filter brightness-80 hover:brightness-100 cursor-pointer">
+      <div className="card h-[550px] w-[500px] perspective-64">
+        <div className="content w-full h-full transform-style preserve-3d shadow-md transition-transform duration-1000 ease-in-out rounded-lg">
+          <div className="front absolute top-0 left-0 w-full h-full bg-white backface-hidden transform-style preserve-3d perspective-1500 border-tl-25 border-bl-25">
+            <div className="inner h-full p-[0.5rem] transform translate-z-80 scale-100">
+              <span>Code Odyssey </span>
+              <span className="text-black">Editor</span>
 
-      <div className="card">
-
-        < input type="checkbox" id="chk" aria-hidden="true" name="" />
-        <div className="content">
-
-          <div className="front">
-            <div className="inner">
-
-              <span >Code Odyssey </span>
-              <span className="text-black"> Editor</span>
-
-              <h1 className="title">SignIn</h1>
+              <h1 className="title relative top-18 left-14 pl-36 text-2xl font-bold text-emerald-500">SignIn</h1>
               <div className="flex justify-center my-2 mt-20">
                 <Link
                   to="#"
@@ -42,90 +35,80 @@ const SignIn: React.FC = () => {
                   <FaFacebook />
                 </Link>
               </div>
-              <p className="para">Just some details to get you in.!</p>
+              <p className="para text-sm p-4 md:p-15 text-justify leading-6">Just some details to get you in.!</p>
 
-              {/* <Image className=""
-                width={150}
-                alt="NextUI Fruit Image with Zoom"
-                src="https://nextui-docs-v2.vercel.app/images/fruit-1.jpeg"
-              /> */}
               <form className="flex flex-col items-center">
                 <Input
                   isRequired
                   type="email"
                   label="Email"
-                  // placeholder="Enter your Password"
-                  variant={"flat"}
-                  className="max-w-xs mt-5 overflow-hidden "
-
+                  variant="flat"
+                  className="max-w-xs mt-5 overflow-hidden"
                 />
                 <Input
                   isRequired
                   type="password"
                   label="Password"
-                  // placeholder="Enter your Password"
                   className="max-w-xs mt-3 mb-4"
                 />
-                <div className="checkboxandforgetpassword">
-                  <label >
+                <div className="checkboxandforgetpassword flex items-center">
+                  <label className="mr-32 ml-24">
                     <input type="checkbox" /> Remember me
                   </label>
 
-                  <label htmlFor="chk" aria-hidden="true" className="f_password" >
+                  <label htmlFor="chk" aria-hidden="true" className="f_password cursor-pointor">
                     Forgot password?
                   </label>
+                  
                 </div>
-                <Button  className="font-extralight text-base mt-4 hover:bg-emerald-500 hover:text-white " >
+                <Button className="font-extralight text-base mt-4 hover:bg-emerald-500 hover:text-white">
                   Sign In
                 </Button>
               </form>
-
             </div>
-
           </div>
 
-          <div className="back">
-            <div className="inner">
-              <span >Code Odyssey Editor</span>
+          <div className="back absolute top-0 left-0 w-full h-full bg-white backface-hidden transform-style preserve-3d perspective-1500 border-tl-25 border-bl-25">
+            <div className="inner h-full p-[0.5em] transform translate-z-80 scale-100">
+              <span>Code Odyssey Editor</span>
               <span className="text-black"> Editor</span>
-              <h1 className="title2">Reset Password</h1>
+              <h1 className="title2 relative top-[70px] pl-[30%] text-3xl text-emerald-500 font-bold">Reset Password</h1>
               <form className="flex flex-col items-center">
                 <Input
                   isRequired
                   type="text"
                   label="Username"
-                  // placeholder="Enter your Password"
-                  variant={"flat"}
-                  className="max-w-xs mt-24 "
+                  variant="flat"
+                  className="max-w-xs mt-24"
                 />
                 <Input
                   isRequired
                   type="email"
                   label="Email"
-                  // placeholder="Enter your Password"
-                  variant={"flat"}
+                  variant="flat"
                   className="max-w-xs mt-3 mb-4"
                 />
-                <Button  className="font-extralight text-base mt-3 hover:bg-emerald-500 hover:text-white">
+                <Button className="font-extralight text-base mt-3 hover:bg-emerald-500 hover:text-white">
                   Reset Password
                 </Button>
-                <label htmlFor="chk" aria-hidden="true" className="backtosigninpage" >
-                  Back to signIn page 
+                <label htmlFor="chk" aria-hidden="true" className="backtosigninpage mt-5 mr-8 ml-40 cursor-pointer">
+                  Back to signIn page
                 </label>
               </form>
             </div>
           </div>
         </div>
       </div>
-      <div className="sidebox">
+      <div className="sidebox bg-emerald-500 p-5 h-[550px] w-[500px] rounded-tr-25 rounded-br-25 shadow-md">
+        <div className="title3 relative top-47 pl-40 text-2xl font-bold text-white">
+          <h2>Hello, Friend!</h2>
+        </div>
 
-        <div className="title3"><h2 >Hello, Friend!</h2></div>
-
-        <p className="titledetail">
-          Fill up information and start journey with us.
+        <p className="titledetail relative top-49 text-white font-bold pl-10">
+          Fill up information and start your journey with us.
         </p>
         <Link to="sign-up" className="pl-36">
-          <Button  className="font-extralight mt-56 text-base hover:bg-white hover:text-green-500">
+          <Button className="font-extralight mt-56 text-base hover:bg-white hover:text-green-500">
             Sign Up
           </Button>
         </Link>
