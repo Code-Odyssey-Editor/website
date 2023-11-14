@@ -14,6 +14,7 @@ import contactpage from "./pages/contactpage";
 
 import { Spinner } from "@nextui-org/react";
 import { editor } from "./pages/editor/editor";
+import forgotpassword from "./pages/auth/forgotpassword";
 
 // Router
 const router = createBrowserRouter([
@@ -33,6 +34,7 @@ function Root() {
       <Route path="/contact" Component={contactpage} />
       <Route path="/sign-in" Component={SignIn} />
       <Route path="/sign-up" Component={Signup} />
+      <Route path="/forgot_p" Component={forgotpassword} />
     </Routes>
   );
 }
