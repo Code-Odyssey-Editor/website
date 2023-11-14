@@ -3,7 +3,6 @@ import HeroComponent from "../components/hero/hero";
 import NavbarComponent from "./../components/navbar/navbar";
 import ParticlesContainer from "./../components/particlescontainer/particlescontainer";
 import { motion } from "framer-motion";
-import mongoose from "mongoose";
 
 const homepage = () => {
   return (
