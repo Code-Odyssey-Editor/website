@@ -1,120 +1,159 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-import { Input } from "@nextui-org/input";
-import { Button } from "@nextui-org/react";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { Button, Input } from "@nextui-org/react";
+import { motion } from "framer-motion";
+import CommonNavbar from "../../components/navbar/common_navbar";
 
-const SignIn: React.FC = () => {
+function SignIn() {
   return (
-    <body className="body flex items-center justify-center h-[100vh] bg-[#f2f2f2] transition-filter filter brightness-80 hover:brightness-100 cursor-pointer">
-      <div className="card h-[550px] w-[500px] perspective-64">
-        <div className="content w-full h-full transform-style preserve-3d shadow-md transition-transform duration-1000 ease-in-out rounded-lg">
-          <div className="front absolute top-0 left-0 w-full h-full bg-white backface-hidden transform-style preserve-3d perspective-1500 border-tl-25 border-bl-25">
-            <div className="inner h-full p-[0.5rem] transform translate-z-80 scale-100">
-              <span>Code Odyssey </span>
-              <span className="text-black">Editor</span>
+    <div className="fixed inset-0 z-0">
+      <div className="z-0">
+        {[...Array(80)].map((_, index) => (
+          <motion.div
+            key={index}
+            initial={{
+              opacity: 0,
+              scale: Math.random() * 0.5 + 0.2,
+              rotate: Math.random() * 360,
+              x: Math.random() * 100 - 50,
+              y: Math.random() * 100 - 50,
+            }}
+            animate={{
+              opacity: 1,
+              scale: Math.random() * 0.7 + 0.4,
+              rotate: Math.random() * 360,
+              x: Math.random() * 100 - 50,
+              y: Math.random() * 100 - 50,
+              transition: {
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: Math.random() * 3 + 1,
+                ease: "linear",
+              },
+            }}
+            className="absolute dark:bg-white bg-black w-1 h-1 rounded-full"
+            style={{
+              left: `${Math.random() * 100}vw`,
+              top: `${Math.random() * 100}vh`,
+            }}
+          />
+        ))}
+      </div>
 
-              <h1 className="title relative top-18 left-14 pl-36 text-2xl font-bold text-emerald-500">SignIn</h1>
-              <div className="flex justify-center my-2 mt-20">
-                <Link
-                  to="#"
-                  className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
-                >
-                  <FaGoogle />
-                </Link>
-                <Link
-                  to="#"
-                  className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
-                >
-                  <FaGithub />
-                </Link>
-                <Link
-                  to="#"
-                  className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
-                >
-                  <FaFacebook />
-                </Link>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.1,
+          type: "spring",
+          stiffness: 100,
+          damping: 10,
+        }}
+      >
+        <CommonNavbar />
+      </motion.div>
+
+      <body className="dark:bg-black">
+        <section className="flex flex-col items-center justify-center w-full flex-1 px-18 text-center min-h-screen">
+          <div className="flex bg-white dark:bg-slate-950 rounded-2xl shadow-2xl w-7/12 max-w-4xl z-10">
+            <div className="w-full p-4">
+              {/* Sign in */}
+              <div className="text-left font-bold">
+                <span className="text-green-500"> Code Odessay</span> Editor
               </div>
-              <p className="para text-sm p-4 md:p-15 text-justify leading-6">Just some details to get you in.!</p>
 
-              <form className="flex flex-col items-center">
-                <Input
-                  isRequired
-                  type="email"
-                  label="Email"
-                  variant="flat"
-                  className="max-w-xs mt-5 overflow-hidden"
-                />
-                <Input
-                  isRequired
-                  type="password"
-                  label="Password"
-                  className="max-w-xs mt-3 mb-4"
-                />
-                <div className="checkboxandforgetpassword flex items-center">
-                  <label className="mr-32 ml-24">
-                    <input type="checkbox" /> Remember me
-                  </label>
+              <div className="py-10">
+                <h2 className="text-2xl font-bold text-green-500 mb-2">
+                  Sign in
+                </h2>
+                <p className="mb-2 text-sm">
+                  Just some details to get you in.!
+                </p>
+                <div className="flex flex-col items-center">
+                  <div className="bg-gray-100 w-64 p-2 flex items-center mb-3 rounded-full dark:bg-slate-900">
+                    <MdEmail className="mr-2 ml-2" />
+                    <div className="">
+                      <Input
+                        type="email"
+                        label="Email"
+                        variant="underlined"
+                        placeholder="Enter your email"
+                        className="outline-none"
+                      />
+                    </div>
+                  </div>
 
-                  <label htmlFor="chk" aria-hidden="true" className="f_password cursor-pointor">
-                    Forgot password?
-                  </label>
-                  
+                  <div className="bg-gray-100 w-64 p-2 flex items-center mb-3 rounded-full dark:bg-slate-900">
+                    <RiLockPasswordLine className="mr-2 ml-2" />
+                    <div className="">
+                      <Input
+                        type="password"
+                        label="Password"
+                        variant="underlined"
+                        placeholder="Enter Password"
+                        className="outline-none "
+                      />
+                    </div>
+                  </div>
+                  <div className="flex justify-between w-64 mb-5 text-sm">
+                    <label>
+                      <input type="checkbox" name="remember" className="mr-1" />{" "}
+                      Remember me
+                    </label>
+                    <Link to="/website/forgot-password">
+                      <p>Forgot Password?</p>
+                    </Link>
+                  </div>
+                  <Button className=" mb-2 border-2 border-green-500 rounded-full inline-block text-green-500 hover:bg-green-500  hover:text-white hover:border-white">
+                    Sign In
+                  </Button>
                 </div>
-                <Button className="font-extralight text-base mt-4 hover:bg-emerald-500 hover:text-white">
-                  Sign In
-                </Button>
-              </form>
+                <div className="border-2 w-60 border-green-500 inline-block mb-2"></div>
+                <div className="flex justify-center ">
+                  <Link
+                    to="#"
+                    className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
+                  >
+                    <FaGoogle />
+                  </Link>
+                  <Link
+                    to="#"
+                    className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
+                  >
+                    <FaGithub />
+                  </Link>
+                  <Link
+                    to="#"
+                    className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
+                  >
+                    <FaFacebook />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="hidden lg:flex flex-col justify-center items-center w-full bg-green-600 dark:bg-green-700 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
+              <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
+              <image href="logo" />
+              <div className="border-2 w-10 border-white inline-block mb-2"></div>
+              <p className="mb-5 ">
+                Fill up the information to start journey with us
+              </p>
+              <Button
+                color="success"
+                className="border-2 border-white rounded-full inline-block text-white hover:bg-slate-50  hover:text-green-500 hover:border-green-500"
+              >
+                Sign Up
+              </Button>
             </div>
           </div>
-
-          <div className="back absolute top-0 left-0 w-full h-full bg-white backface-hidden transform-style preserve-3d perspective-1500 border-tl-25 border-bl-25">
-            <div className="inner h-full p-[0.5em] transform translate-z-80 scale-100">
-              <span>Code Odyssey Editor</span>
-              <span className="text-black"> Editor</span>
-              <h1 className="title2 relative top-[70px] pl-[30%] text-3xl text-emerald-500 font-bold">Reset Password</h1>
-              <form className="flex flex-col items-center">
-                <Input
-                  isRequired
-                  type="text"
-                  label="Username"
-                  variant="flat"
-                  className="max-w-xs mt-24"
-                />
-                <Input
-                  isRequired
-                  type="email"
-                  label="Email"
-                  variant="flat"
-                  className="max-w-xs mt-3 mb-4"
-                />
-                <Button className="font-extralight text-base mt-3 hover:bg-emerald-500 hover:text-white">
-                  Reset Password
-                </Button>
-                <label htmlFor="chk" aria-hidden="true" className="backtosigninpage mt-5 mr-8 ml-40 cursor-pointer">
-                  Back to signIn page
-                </label>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="sidebox bg-emerald-500 p-5 h-[550px] w-[500px] rounded-tr-25 rounded-br-25 shadow-md">
-        <div className="title3 relative top-47 pl-40 text-2xl font-bold text-white">
-          <h2>Hello, Friend!</h2>
-        </div>
-
-        <p className="titledetail relative top-49 text-white font-bold pl-10">
-          Fill up information and start your journey with us.
-        </p>
-        <Link to="sign-up" className="pl-36">
-          <Button className="font-extralight mt-56 text-base hover:bg-white hover:text-green-500">
-            Sign Up
-          </Button>
-        </Link>
-      </div>
-    </body>
+        </section>
+      </body>
+    </div>
   );
-};
+}
 
 export default SignIn;

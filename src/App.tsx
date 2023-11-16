@@ -7,16 +7,19 @@ import {
 } from "react-router-dom";
 import homepage from "./pages/homepage";
 import aboutpage from "./pages/aboutpage";
-import editorpage from "./pages/editor/editorpage";
 import SignIn from "./pages/auth/signinpage";
 import Signup from "./pages/auth/signuppage";
 import supportpage from "./pages/supportpage";
 import contactpage from "./pages/contactpage";
 
 import { Spinner } from "@nextui-org/react";
+import { editor } from "./pages/editor/editor";
+import forgotpassword from "./pages/auth/forgotpassword";
 
 // Router
-const router = createBrowserRouter([{ path: "/website/*", Component: Root , ErrorBoundary: Root}]);
+const router = createBrowserRouter([
+  { path: "/website/*", Component: Root, ErrorBoundary: Root },
+]);
 
 // 1️⃣ Changed from App to Root
 function Root() {
@@ -26,27 +29,30 @@ function Root() {
     <Routes>
       <Route path="/" Component={homepage} />
       <Route path="/about" Component={aboutpage} />
-      <Route path="/editor" Component={editorpage} />
+      <Route path="/editor" Component={editor} />
       <Route path="/support" Component={supportpage} />
       <Route path="/contact" Component={contactpage} />
       <Route path="/sign-in" Component={SignIn} />
       <Route path="/sign-up" Component={Signup} />
+      <Route path="/forgot-password" Component={forgotpassword}/>
     </Routes>
   );
 }
 
 // Spinner Element
 function SpinnerElement() {
-  return ( <div
-    style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100vh",
-    }}
-  >
-    <Spinner label="Loading..." color="success" labelColor="success" />
-  </div>)
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
+      <Spinner label="Loading..." color="success" labelColor="success" />
+    </div>
+  );
 }
 
 export default function App() {

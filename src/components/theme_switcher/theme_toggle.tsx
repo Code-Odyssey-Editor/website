@@ -15,18 +15,16 @@ const ThemeSwitcher = ({ props }: any) => {
     getWrapperProps,
   } = useSwitch(props);
 
-  // Depends on Selection
-  if (!isSelected) {
-    setTheme("light");
-    console.log(theme);
-  } else {
-    setTheme("dark");
-  }
+  // Depends on theme
+  // Theme Change Function
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <div className="flex flex-col gap-2 backdrop:blur">
       <div className="font-light text-sm font-mono px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800">
-        <Component {...getBaseProps()}>
+        <Component {...getBaseProps()} onClick={toggleTheme}>
           <VisuallyHidden>
             <input {...getInputProps()} />
           </VisuallyHidden>
