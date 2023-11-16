@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-import { Input } from "@nextui-org/input";
-import { Button } from "@nextui-org/react";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { Button, Input } from "@nextui-org/react";
+import { motion } from 'framer-motion';
+import CommonNavbar from "../../components/navbar/common_navbar";
 
-import "./signinpage.css"
-const SignIn: React.FC = () => {
+
+function SignIn() {
+
   return (
    
     <body className="body ">
@@ -17,8 +21,8 @@ const SignIn: React.FC = () => {
           <div className="front">
             <div className="inner">
 
-              <span className="span">Code Odyssey </span>
-              <span className="text-black span"> Editor</span>
+              <span >Code Odyssey </span>
+              <span className="text-black"> Editor</span>
 
               <h1 className="title">SignIn</h1>
               <div className="flex justify-center my-2 mt-20">
@@ -85,8 +89,8 @@ const SignIn: React.FC = () => {
 
           <div className="back">
             <div className="inner">
-              <span className="span">Code Odyssey Editor</span>
-              <span className="text-black span"> Editor</span>
+              <span >Code Odyssey Editor</span>
+              <span className="text-black"> Editor</span>
               <h1 className="title2">Reset Password</h1>
               <form className="flex flex-col items-center">
                 <Input
@@ -114,22 +118,9 @@ const SignIn: React.FC = () => {
               </form>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="sidebox">
-
-        <div className="title3"><h2 >Hello, Friend!</h2></div>
-
-        <p className="titledetail">
-          Fill up information and start journey with us.
-        </p>
-        <Link to="sign-up" className="pl-36">
-          <Button  className="font-extralight mt-56 text-base hover:bg-white hover:text-green-500">
-            Sign Up
-          </Button>
-        </Link>
-      </div>
-    </body>
+        </section>
+      </body>
+    </div >
   );
 }
 

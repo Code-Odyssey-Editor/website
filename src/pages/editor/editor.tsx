@@ -32,20 +32,7 @@ export const editor = () => {
   return (
     <div>
       {/* Common Navbar */}
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          duration: 0.5,
-          delay: 0.1,
-          type: "spring",
-          stiffness: 100,
-          damping: 10,
-        }}
-      >
-        <CommonNavbar />
-      </motion.div>
-
+      <CommonNavbar />
       {/* Editor Section */}
       <section className="w-11/12 h-full mx-auto my-4 dark:bg-gray-800 bg-slate-300 p-2 rounded-3xl">
         {/* Top Section */}

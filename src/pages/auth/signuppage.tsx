@@ -1,48 +1,18 @@
-// import React from "react";
-import { Link } from "react-router-dom";
-import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { RiLockPasswordLine } from "react-icons/ri";
-import { Button, Input } from "@nextui-org/react";
-import { motion } from "framer-motion";
-import CommonNavbar from "../../components/navbar/common_navbar";
-// import forgotpassword from "./forgotpassword";
+import React from "react";
+import { Image, Input, Button, Checkbox, Link } from "@nextui-org/react";
 
-function SignIn() {
+const Signup: React.FC = () => {
   return (
-    <div className="relative inset-0 z-10">
-      <div className="z-0">
-        {[...Array(80)].map((_, index) => (
-          <motion.div
-            key={index}
-            initial={{
-              opacity: 0,
-              scale: Math.random() * 0.5 + 0.2,
-              rotate: Math.random() * 360,
-              x: Math.random() * 100 - 50,
-              y: Math.random() * 100 - 50,
-            }}
-            animate={{
-              opacity: 1,
-              scale: Math.random() * 0.7 + 0.4,
-              rotate: Math.random() * 360,
-              x: Math.random() * 100 - 50,
-              y: Math.random() * 100 - 50,
-              transition: {
-                repeat: Infinity,
-                repeatType: "reverse",
-                duration: Math.random() * 3 + 1,
-                ease: "linear",
-              },
-            }}
-            className="absolute dark:bg-white bg-black w-1 h-1 rounded-full"
-            style={{
-              left: `${Math.random() * 100}vw`,
-              top: `${Math.random() * 100}vh`,
-            }}
+    <div className="bg-gray-300 min-h-screen flex items-center justify-center">
+      <div className="bg-gray-200 flex rounded-2xl shadow-lg max-w-3xl p-5 lg:flex-row flex-col h-full">
+        <div className="w-1/2 mt-5 pr-1 pl-2 ">
+          <Image
+            isZoomed
+            alt="NextUI Fruit Image with Zoom"
+            src="https://nextui-docs-v2.vercel.app/images/fruit-1.jpeg"
+            className="object-cover w-full h-full"
           />
-        ))}
-      </div>
+        </div>
 
       <motion.div
         initial={{ opacity: 0, y: 100 }}
@@ -176,4 +146,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Signup;
