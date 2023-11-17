@@ -4,6 +4,7 @@ import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Button, Input } from "@nextui-org/react";
 import { motion } from 'framer-motion';
+import CommonNavbar from "../../components/navbar/common_navbar";
 
 
 function SignIn() {
@@ -41,6 +42,21 @@ function SignIn() {
         />
       ))}
       <body className="bg-black">
+              {/* Common Navbar */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.5,
+          delay: 0.1,
+          type: "spring",
+          stiffness: 100,
+          damping: 10,
+        }}
+      >
+        <CommonNavbar />
+      </motion.div>
+
 
         <section className="flex flex-col items-center justify-center w-full flex-1 px-18 text-center min-h-screen">
 

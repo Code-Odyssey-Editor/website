@@ -34,7 +34,7 @@ function Root() {
       <Route path="/contact" Component={contactpage} />
       <Route path="/sign-in" Component={SignIn} />
       <Route path="/sign-up" Component={Signup} />
-      <Route path="/forgot_p" Component={forgotpassword} />
+      <Route path="/forgot-password" Component={forgotpassword}/>
     </Routes>
   );
 }
