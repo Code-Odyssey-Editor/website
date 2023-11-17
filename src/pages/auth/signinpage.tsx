@@ -73,7 +73,13 @@ function SignIn() {
                   <div className="bg-gray-100 w-64 p-2 flex items-center mb-3 rounded-full">
                     <MdEmail className="mr-2 ml-2" />
                     <div className="">
-                      <Input type="email" placeholder="Enter your email" className="outline-none" />
+                      <Input
+                        type="email"
+                        label="Email"
+                        variant="underlined"
+                        placeholder="Enter your email"
+                        className="outline-none"
+                      />
                     </div>
                   </div>
 
@@ -81,7 +87,13 @@ function SignIn() {
                   <div className="bg-gray-100 w-64 p-2 flex items-center mb-3 rounded-full">
                     <RiLockPasswordLine className="mr-2 ml-2" />
                     <div className="">
-                      <Input type="password" placeholder="Enter Password" className="outline-none " />
+                      <Input
+                        type="password"
+                        label="Password"
+                        variant="underlined"
+                        placeholder="Enter Password"
+                        className="outline-none "
+                      />
                     </div>
                   </div>
                   <div className="flex justify-between w-64 mb-5 text-sm">
@@ -120,13 +132,18 @@ function SignIn() {
               </div>
             </div>
 
-            <div className="w-1/2 bg-green-600  text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">{/* Sign up */}
-              <h2 className="text-3xl font-bold mb-2 overflow-hidden ">Hello, Friend!</h2>
+            <div className="hidden lg:flex flex-col justify-center items-center w-9/12 bg-green-600 dark:bg-green-700 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12">
+              <h2 className="text-3xl font-bold mb-2">Hello, Friend!</h2>
               <image href="logo" />
               <div className="border-2 w-10 border-white inline-block mb-2"></div>
-              <p className="mb-10 "> Fill up the information to start journey with us</p>
-              <Button color="success" className="border-2 border-white rounded-full inline-block text-white hover:bg-slate-50  hover:text-green-500 hover:border-green-500">
-                Signup
+              <p className="mb-5 ">
+                Fill up the information to start journey with us
+              </p>
+              <Button
+                color="success"
+                className="border-2 border-white rounded-full inline-block text-white hover:bg-slate-50  hover:text-green-500 hover:border-green-500"
+              >
+                Sign Up
               </Button>
             </div>
           </div>
