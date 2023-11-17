@@ -1,12 +1,49 @@
-import React from "react";
-import { Image, Input, Button, Checkbox, Link } from "@nextui-org/react";
-import CommonNavbar from "../../components/navbar/common_navbar";
+// import React from "react";
+import { Link } from "react-router-dom";
+import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { Button, Input } from "@nextui-org/react";
 import { motion } from "framer-motion";
+import CommonNavbar from "../../components/navbar/common_navbar";
+// import forgotpassword from "./forgotpassword";
 
-const Signup: React.FC = () => {
+function SignUp() {
   return (
-    <>
-      {/* Common Navbar */}
+    <div className="relative inset-0 z-10">
+      <div className="z-0">
+        {[...Array(80)].map((_, index) => (
+          <motion.div
+            key={index}
+            initial={{
+              opacity: 0,
+              scale: Math.random() * 0.5 + 0.2,
+              rotate: Math.random() * 360,
+              x: Math.random() * 100 - 50,
+              y: Math.random() * 100 - 50,
+            }}
+            animate={{
+              opacity: 1,
+              scale: Math.random() * 0.7 + 0.4,
+              rotate: Math.random() * 360,
+              x: Math.random() * 100 - 50,
+              y: Math.random() * 100 - 50,
+              transition: {
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: Math.random() * 3 + 1,
+                ease: "linear",
+              },
+            }}
+            className="absolute dark:bg-white bg-black w-1 h-1 rounded-full"
+            style={{
+              left: `${Math.random() * 100}vw`,
+              top: `${Math.random() * 100}vh`,
+            }}
+          />
+        ))}
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -21,33 +58,33 @@ const Signup: React.FC = () => {
         <CommonNavbar />
       </motion.div>
 
-      <body className="dark:bg-black">
+      <body className="dark:bg-black lg:mt-0 mt-2">
         <section className="flex flex-col items-center justify-center w-full flex-1 px-18 text-center min-h-screen">
-          <div className="bg-white rounded-2xl shadow-2xl flex w-4/6 max-w-4xl z-10 dark:bg-slate-950">
-            <div className="hidden md:flex flex-col justify-center items-center w-full bg-green-600 dark:bg-green-700  text-white rounded-l-2xl py-36 px-12">
+          <div className="bg-white rounded-2xl shadow-2xl flex w-4/6  z-10 dark:bg-slate-950">
+            <div className="hidden md:flex flex-col justify-center items-center w-8/12 bg-green-600 dark:bg-green-700 text-white rounded-l-2xl py-36 px-12">
               {/* Sign up */}
-              <h2 className="text-3xl font-bold mb-2 overflow-hidden ">
+              <h2 className="lg:text-3xl text-xl font-bold mb-2 overflow-hidden ">
                 Hello, Friend!
               </h2>
-              <h2 className="text-xl font-bold mb-2 overflow-hidden ">
+              <h2 className="lg:text-xl text-sm font-bold mb-2 overflow-hidden ">
                 WELCOME
               </h2>
               <image href="logo" />
               <div className="border-2 w-10 border-white inline-block mb-2"></div>
-              <p className="mb-5">
+              <p className="mb-5 lg:text-base text-xs">
                 Fill up the information to start journey with us
               </p>
               <Link to="/website/sign-in">
                 <Button
                   color="success"
-                  className="border-2 border-white rounded-full inline-block text-white hover:bg-slate-50 hover:text-green-500 hover:border-green-500"
+                  className="border-2 border-white rounded-full inline-block lg:scale-100 scale-90 text-white hover:bg-slate-50 hover:text-green-500 hover:border-green-500"
                 >
                   Sign In
                 </Button>
               </Link>
             </div>
 
-            <div className="w-full p-4">
+            <div className="w-full p-4 lg:scale-100 scale-90">
               {/* Sign in */}
               <div className="text-left font-bold">
                 Welcome to <span className="text-green-600">Code Odessay</span>{" "}
@@ -69,7 +106,7 @@ const Signup: React.FC = () => {
                         type="email"
                         variant="underlined"
                         label="Email"
-                        placeholder="Enter your email"
+                        // placeholder="Enter your email"
                         className="outline-none"
                       />
                     </div>
@@ -82,7 +119,7 @@ const Signup: React.FC = () => {
                         type="password"
                         variant="underlined"
                         label="Password"
-                        placeholder="Enter Password"
+                        // placeholder="Enter Password"
                         className="outline-none "
                       />
                     </div>
@@ -95,7 +132,7 @@ const Signup: React.FC = () => {
                         type="password"
                         variant="underlined"
                         label="Confirm Password"
-                        placeholder="Confirm Password"
+                        // placeholder="Confirm Password"
                         className="outline-none "
                       />
                     </div>
@@ -112,29 +149,31 @@ const Signup: React.FC = () => {
                 <div className="border-2 w-60 border-green-500 inline-block mb-2"></div>
                 <div className="flex justify-center ">
                   <Link
-                    color="primary"
-                    href="/forgot-password"
-                    className="ml-6"
+                    to="#"
+                    className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
                   >
-                    Forgot Password?
+                    <FaGoogle />
+                  </Link>
+                  <Link
+                    to="#"
+                    className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
+                  >
+                    <FaGithub />
+                  </Link>
+                  <Link
+                    to="#"
+                    className="border-2 border-gray-200 rounded-full py-2 px-4 mx-1 text-gray-600 hover:bg-gray-200 hover:text-gray-700 transition ease-in-out duration-300"
+                  >
+                    <FaFacebook />
                   </Link>
                 </div>
-
-                <div className="pl-28">
-                  <Button
-                    className="max-w-[290px] mt-6 max-h-[30px]"
-                    color="primary"
-                  >
-                    Sign In
-                  </Button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </>
+        </section>
+      </body>
+    </div>
   );
-};
+}
 
-export default Signup;
+export default SignUp;
