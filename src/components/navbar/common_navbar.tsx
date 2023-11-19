@@ -14,7 +14,7 @@ export default function CommonNavbar() {
   return (
     <Navbar
       position="static"
-      className="backdrop:blur rounded-full bg-pink-100/20 border hover:shadow-md transition ease-in-out duration-700 border-gray-100/40 dark:border-gray-800/40 dark:bg-gray-800/80 w-11/12 lg:w-1/2 mx-auto mt-4 xl:w-1/3 dark:shadow-blue-200/20"
+      className="backdrop:blur rounded-full bg-gray-200/90 border hover:shadow-md transition ease-in-out duration-700 border-gray-100/40 dark:border-gray-800/40 dark:bg-gray-800/80 w-11/12 lg:w-1/2 mx-auto mt-4 xl:w-1/3 dark:shadow-blue-200/20"
     >
       <NavbarContent>
         <NavbarBrand>
