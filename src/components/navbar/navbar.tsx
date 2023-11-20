@@ -44,16 +44,19 @@ export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
+    "Home",
+    "Editor",
+    "Sign Up",
+    "Sign In",
     "Log Out",
+  ];
+
+  const menuItems_Links = [
+    "/website/",
+    "/website/editor",
+    "/website/sign-up",
+    "/website/sign-in",
+    "/website/",
   ];
 
   return (
@@ -180,7 +183,7 @@ export default function NavbarComponent() {
                     : "foreground"
                 }
                 className="w-full"
-                to="#"
+                to={menuItems_Links[index]}
               >
                 {item}
               </Link>

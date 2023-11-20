@@ -12,7 +12,6 @@ import { useState, useRef, useLayoutEffect } from "react";
 import MonacoEditor from "react-monaco-editor";
 import CommonNavbar from "../../components/navbar/common_navbar";
 import { useTheme } from "next-themes";
-import { motion } from "framer-motion";
 
 export const editor = () => {
   const [code, setCode] = useState(""); // Initialize code state with an empty string
